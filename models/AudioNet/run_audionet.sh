@@ -2,8 +2,7 @@
 task="digit"
 
 # set paths
-#path_cwd=$PWD
-path_cwd="/content/AudioMNIST/models/AudioNet"
+path_cwd=$PWD
 #path_data="/home/becker/repositories/AudioMNIST/data/" #"$path_repo/data_preprocessed/datasets_lmdb" #/foolset"
 path_data="/content/AudioMNIST/preprocessed_data/"
 timestamp=$(date +"%Y-%m-%d-%T")
