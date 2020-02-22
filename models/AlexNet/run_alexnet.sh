@@ -4,7 +4,7 @@ task="digit"
 # set paths
 path_cwd=$PWD
 #path_data="/home/becker/repositories/AudioMNIST/data/" #"$path_repo/data_preprocessed/datasets_lmdb" #/foolset"
-path_data="/home/becker/AudioMNIST/preprocessed_data/"
+path_data="/content/AudioMNIST/preprocessed_data/"
 timestamp=$(date +"%Y-%m-%d-%T")
 
 
@@ -70,13 +70,13 @@ do
     #TODO: make path to caffe less user specific
 
     echo "starting training"
-    /home/becker/caffe/caffe-1.0/build/tools/caffe train -gpu "0" \
+    /usr/bin/caffe train -gpu "0" \
                                                          -solver="$config/alexnet_solver.prototxt" \
                                                          2>&1 | tee "$config/alexnet_"$task"_split"$splitIdx"_train.log"
 
 
     echo "starting testing"
-    /home/becker/caffe/caffe-1.0/build/tools/caffe test -gpu "0" \
+    /usr/bin/caffe test -gpu "0" \
                                                         -iterations "$nTestIter" \
                                                         -weights "$config/snapshots/AlexNet_iter_10000.caffemodel" \
                                                         -model "$config/alexnet_test.prototxt" \
